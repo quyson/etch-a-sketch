@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    height: 550px;
+    width: 550px;
+    display: grid;
+    border-style: solid;
+    border-width: 10px;;
+    border-color: black;
+}
