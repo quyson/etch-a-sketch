@@ -1,5 +1,7 @@
 const container = document.getElementById("container");
 var colors = 'black';
+let randomColor = Math.floor(Math.random()*16777215).toString(16);
+let clearButton = document.querySelector('.clear')
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -17,11 +19,11 @@ function setColor(input){
     colors = input;
 }
 
-function clear(){
-    let allSquares = document.querySelectorAll('.squares');
-    allSquares.style.backgroundColor = 'white';
-}
+clearButton.addEventListener('click', () => {
+    document.querySelectorAll('.squares').forEach(e => e.style.backgroundColor = 'white');
+})
+
+
 
 
 makeRows(100, 100);
-clear();
