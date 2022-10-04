@@ -1,11 +1,27 @@
-function createBoard() {
-    const container = document.querySelector('.container');
-    container.style.gridTemplateColumns = 'repeat(16, 1fr)';
-    container.style.gridTemplateRows = 'repeat(16, 1fr)';
-        
-    for(let i = 0; i < 256; i++){
-        let div = document.createElement('div');
-        div.style.backgroundColor = 'white';
-        container.insertAdjacentElement('beforeend', div);
-    }
+const container = document.getElementById("container");
+var colors = 'black';
+
+function makeRows(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    cell.addEventListener('mouseover', () => {
+        cell.style.backgroundColor = colors;
+    });
+    container.appendChild(cell).className = "squares";
+  };
+};
+
+function setColor(input){
+    colors = input;
 }
+
+function clear(){
+    let allSquares = document.querySelectorAll('.squares');
+    allSquares.style.backgroundColor = 'white';
+}
+
+
+makeRows(100, 100);
+clear();

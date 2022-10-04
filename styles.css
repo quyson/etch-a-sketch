@@ -1,9 +1,18 @@
-.container {
+
+  
+  #container {
     display: grid;
-    height: 550px;
-    width: 550px;
-    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    height: 700px;
+    width: 700px;
     border-style: solid;
-    border-width: 10px;;
+    border-width: 5px;
     border-color: black;
-}
+  }
+  
+  
+  .grid-item {
+    height:auto;
+    width:auto;
+  }
