@@ -1,7 +1,21 @@
 const container = document.getElementById("container");
 var colors = 'black';
 let randomColor = Math.floor(Math.random()*16777215).toString(16);
-let clearButton = document.querySelector('.clear')
+
+
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+    document.querySelectorAll('.squares').forEach(e => e.style.backgroundColor = 'white');
+});
+
+const resetButton = document.querySelector('.reset');
+resetButton.addEventListener('click', () => {
+    document.querySelectorAll('.squares').forEach(e => e.remove());
+    let input = userInput();
+    input = Number(input);
+    makeRows(input, input);
+});
+
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -19,11 +33,14 @@ function setColor(input){
     colors = input;
 }
 
-clearButton.addEventListener('click', () => {
-    document.querySelectorAll('.squares').forEach(e => e.style.backgroundColor = 'white');
-})
+function userInput(){
+    let user = prompt("Please enter a number between 0 and 100: ");
+    if(user > 100 || user < 0){
+        alert("Error!");
+        return
+    } else {
+        return user;
+    }
+}
 
-
-
-
-makeRows(100, 100);
+makeRows(16, 16);
