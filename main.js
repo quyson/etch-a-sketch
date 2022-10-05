@@ -1,6 +1,5 @@
 const container = document.getElementById("container");
 var colors = 'black';
-let randomColor = Math.floor(Math.random()*16777215).toString(16);
 
 
 const clearButton = document.querySelector('.clear');
@@ -14,6 +13,14 @@ resetButton.addEventListener('click', () => {
     let input = userInput();
     input = Number(input);
     makeRows(input, input);
+});
+
+const randomButton = document.querySelector(".rainbow");
+randomButton.addEventListener("click", () => {
+    let allSquares = document.querySelectorAll('.squares');
+    allSquares.forEach(e => e.addEventListener('mouseover', () => {
+        e.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    }));
 });
 
 
